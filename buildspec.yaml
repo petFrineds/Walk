@@ -21,7 +21,7 @@ phases:
     commands:
       - echo Build Starting on `date`
       #- echo Building with maven...
-      #- mvn clean install -Dmaven.test.skip=true
+      - mvn clean install -Dmaven.test.skip=true
       #- ./gradlew build
       - echo Building the Docker image
       - docker build -t $IMAGE_REPO_NAME:latest .
