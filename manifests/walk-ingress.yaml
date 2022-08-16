@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: "backend-ingress"
-  namespace: default 
+  namespace: default
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -18,4 +18,4 @@ spec:
               service:
                 name: "walk-backend"
                 port:
-                  number: 80
+                  number: 8080

@@ -20,7 +20,7 @@ phases:
   build:
     commands:
       - echo Build Starting on `date`
-      #- echo Building with maven...
+      - echo Building with maven...
       - mvn clean install -Dmaven.test.skip=true
       #- ./gradlew build
       - echo Building the Docker image
@@ -40,4 +40,4 @@ phases:
       - sed -i.bak 's#DATE_STRING#'"$DATE"'#' ./manifests/walk-deployment.yaml
       - kubectl apply -f ./manifests/walk-deployment.yaml
       - kubectl apply -f ./manifests/walk-service.yaml
-      #- kubectl apply -f ./walk-ingress.yaml
+      #- kubectl apply -f ./manifests/walk-ingress.yaml

@@ -1,20 +1,6 @@
 server:
   port: 8080
 ---
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver #mysql driver
-#    url: jdbc:mysql://${DB_HOST}/${DB_NAME}?useSSL=false
-#    username: ${DB_USERNAME}
-#    password: ${DB_PASSWORD}
-#    hikari:
-#      initialization-fail-timeout: 0
-#  jpa:
-#    database-platform: org.hibernate.dialect.MySQL5Dialect
-#    generate-ddl: true
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: update
 
 spring:
   profiles: default
@@ -30,7 +16,24 @@ spring:
     properties:
       hibernate:
         format_sql: true #To beautify or pretty print the SQL
-        show_sql: true #show sql       
+        show_sql: true #show sql
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver #mysql driver
+#    url: jdbc:mysql://${DB_HOST}/${DB_NAME}?useSSL=false
+#    username: ${DB_USERNAME}
+#    password: ${DB_PASSWORD}
+#    hikari:
+#      initialization-fail-timeout: 0
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
+#    generate-ddl: true
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+
+    
   cloud:
     stream:
       kafka:
@@ -61,7 +64,7 @@ logging:
       SQL: DEBUG
     org.springframework.cloud: debug
 server:
-  port: 8089
+  port: 8080
 ---
 
 spring:
