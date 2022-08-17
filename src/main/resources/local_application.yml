@@ -1,12 +1,11 @@
 server:
   port: 8080
 ---
-
 spring:
   profiles: default
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/petfriends?characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mariadb://localhost:3306/petfriends?characterEncoding=UTF-8&serverTimezone=UTC 
     username: root
     password: root
     
@@ -16,24 +15,7 @@ spring:
     properties:
       hibernate:
         format_sql: true #To beautify or pretty print the SQL
-        show_sql: true #show sql
-
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver #mysql driver
-#    url: jdbc:mysql://${DB_HOST}/${DB_NAME}?useSSL=false
-#    username: ${DB_USERNAME}
-#    password: ${DB_PASSWORD}
-#    hikari:
-#      initialization-fail-timeout: 0
-#  jpa:
-#    database-platform: org.hibernate.dialect.MySQL5Dialect
-#    generate-ddl: true
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: update
-
-    
+        show_sql: true #show sql       
   cloud:
     stream:
       kafka:
