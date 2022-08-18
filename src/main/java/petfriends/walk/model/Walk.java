@@ -48,7 +48,7 @@ public class Walk {
 	private SmsStatus smsStatus;		// SMS 발송 상태 (START, END)
 	
     private Long reservedId;			// 예약ID
-    private Long userId;				// 회원ID
+    private String userId;				// 회원ID
     private Long dogWalkerId;			// 도그워커ID
 	
     @PostPersist
@@ -70,7 +70,7 @@ public class Walk {
     public static Walk of(
     		SmsStatus smsStatus,
     		Long reservedId,
-    		Long userId,
+    		String userId,
     		Long dogWalkerId) {
     	
     	return Walk.builder()
@@ -114,11 +114,11 @@ public class Walk {
 		this.smsStatus = smsStatus;
 	}
 
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

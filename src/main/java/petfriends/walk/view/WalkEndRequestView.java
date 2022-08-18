@@ -14,7 +14,7 @@ public class WalkEndRequestView {
 
 	private Long id;				// 산책ID
 	private Long reservedId;		// 예약ID
-    private Long userId;			// 회원ID
+    private String userId;			// 회원ID
     private Long dogWalkerId;		// 도그워커ID
 	
 }

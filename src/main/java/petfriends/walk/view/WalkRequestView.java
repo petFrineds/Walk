@@ -13,6 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class WalkRequestView {
 	private Long reservedId;		// 예약ID
-    private Long userId;			// 회원ID
+    private String userId;			// 회원ID
     private Long dogWalkerId;		// 도그워커ID
 }
