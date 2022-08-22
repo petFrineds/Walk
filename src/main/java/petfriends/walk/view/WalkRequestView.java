@@ -14,5 +14,5 @@ import lombok.Setter;
 public class WalkRequestView {
 	private Long reservedId;		// 예약ID
     private String userId;			// 회원ID
-    private Long dogWalkerId;		// 도그워커ID
+    private Long dogwalkerScheduleId;		// 도그워커스케줄ID
 }
