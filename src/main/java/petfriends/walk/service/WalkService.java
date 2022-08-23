@@ -34,7 +34,7 @@ public class WalkService {
 		 Walk walkStarted = Walk.of(SmsStatus.START, 
 				 walkRequest.getReservedId(), 
 				 walkRequest.getUserId(), 
-				 walkRequest.getDogwalkerScheduleId());
+				 walkRequest.getDogWalkerId());
 		 
 		 // 산책 시작 일자는 현재일시분으로 세팅
 		 //walkStarted.setWalkStartDate(LocalDateTime.now());

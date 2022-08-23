@@ -29,7 +29,7 @@ public class WalkEnded extends AbstractEvent {
 	
     private Long reservedId;			// 예약ID
     private String userId;				// 회원ID
-    private Long dogwalkerScheduleId;	// 도그워커스케줄ID
+    private String dogWalkerId;			// 도그워커ID
 
     public WalkEnded(){
         super();
@@ -83,12 +83,13 @@ public class WalkEnded extends AbstractEvent {
 		this.walkEndDate = walkEndDate;
 	}
 
-	public Long getDogwalkerScheduleId() {
-		return dogwalkerScheduleId;
+	public String getDogWalkerId() {
+		return dogWalkerId;
 	}
 
-	public void setDogwalkerScheduleId(Long dogwalkerScheduleId) {
-		this.dogwalkerScheduleId = dogwalkerScheduleId;
+	public void setDogWalkerId(String dogWalkerId) {
+		this.dogWalkerId = dogWalkerId;
 	}
-	
+
+
 }

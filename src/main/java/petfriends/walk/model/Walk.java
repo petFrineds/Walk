@@ -49,7 +49,7 @@ public class Walk {
 	
     private Long reservedId;			// 예약ID
     private String userId;				// 회원ID
-    private Long dogwalkerScheduleId;	// 도그워커스케줄ID
+    private String dogWalkerId;			// 도그워커ID
 	
     @PostPersist
     public void onPostPersist(){
@@ -71,13 +71,13 @@ public class Walk {
     		SmsStatus smsStatus,
     		Long reservedId,
     		String userId,
-    		Long dogwalkerScheduleId) {
+    		String dogWalkerId) {
     	
     	return Walk.builder()
     			.smsStatus(smsStatus)
     			.reservedId(reservedId)
     			.userId(userId)
-    			.dogwalkerScheduleId(dogwalkerScheduleId)
+    			.dogWalkerId(dogWalkerId)
     			.build();
     	
     }
@@ -130,12 +130,13 @@ public class Walk {
 		this.walkEndDate = walkEndDate;
 	}
 
-	public Long getDogwalkerScheduleId() {
-		return dogwalkerScheduleId;
+	public String getDogWalkerId() {
+		return dogWalkerId;
 	}
 
-	public void setDogwalkerScheduleId(Long dogwalkerScheduleId) {
-		this.dogwalkerScheduleId = dogwalkerScheduleId;
+	public void setDogWalkerId(String dogWalkerId) {
+		this.dogWalkerId = dogWalkerId;
 	}
+
 
 }
