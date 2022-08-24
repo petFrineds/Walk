@@ -3,13 +3,18 @@
 ---------------------------------------------------
 테이블스페이스 : petfriends
 
-테이블생성 Script: CREATE TABLE payment (   
-  pay_id BIGINT(20) NOT NULL DEFAULT '0',   
-  reserved_id VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',   
-  user_id VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',   
-  amount DOUBLE NULL DEFAULT NULL,   
-  pay_date TIMESTAMP NULL DEFAULT NULL,   
-  refund_date TIMESTAMP NULL DEFAULT NULL ) COLLATE='utf8mb4_general_ci' ENGINE=InnoDB ;  
+테이블생성 Script: 
+
+CREATE TABLE `walk` (
+`walk_id` bigint(20) NOT NULL AUTO_INCREMENT,
+`dog_walker_id` varchar(255) DEFAULT NULL,
+`reserved_id` bigint(20) DEFAULT NULL,
+`sms_status` varchar(255) DEFAULT NULL,
+`user_id` varchar(255) DEFAULT NULL,
+`walk_end_date` varchar(255) DEFAULT NULL,
+`walk_start_date` varchar(255) DEFAULT NULL,
+PRIMARY KEY (`walk_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4
 
 insert샘플: insert into payment (amount, pay_date, refund_date, reserved_id, user_id) values (10000, '2022-03-10 19:22:33.102', null, '22021','soyapayment95');  
 
