@@ -2,6 +2,8 @@ package petfriends.walk.service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 import javax.transaction.Transactional;
@@ -38,9 +40,19 @@ public class WalkService {
 		 
 		 // 산책 시작 일자는 현재일시분으로 세팅
 		 //walkStarted.setWalkStartDate(LocalDateTime.now());
-		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		 String dateStr = format.format(Calendar.getInstance().getTime());
+//		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//		 String dateStr = format.format(Calendar.getInstance().getTime());
+//		 walkStarted.setWalkStartDate(dateStr);
+		 
+		 //LocalDateTime current = LocalDateTime.now();
+		 //DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		 //String dateStr = format.format(current);
+		 //walkStarted.setWalkStartDate(dateStr);
+		 
+		 LocalDateTime current = LocalDateTime.now();
+		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 		 walkStarted.setWalkStartDate(dateStr);
+		 
 		 
 		 return walkRepository.save(walkStarted);
 		 
@@ -68,8 +80,12 @@ public class WalkService {
 			 
 		 // 산책 종료 일자는 현재일시로 세팅 
 		 //walkEnded.setWalkEndDate(LocalDateTime.now());
-		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		 String dateStr = format.format(Calendar.getInstance().getTime());
+//		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//		 String dateStr = format.format(Calendar.getInstance().getTime());
+//		 walkEnded.setWalkEndDate(dateStr);
+		 
+		 LocalDateTime current = LocalDateTime.now();
+		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 		 walkEnded.setWalkEndDate(dateStr);
 			 
 		 return	walkRepository.save(walkEnded);
