@@ -1,22 +1,25 @@
 ---------------------------------------------------
-1. maria 설치 및 테이블 생성(예제에는 id/passwd : root/1234 , 변경은 application.yml에서 하면 됨. )
+1. 사용 테이블
 ---------------------------------------------------
 테이블스페이스 : petfriends
 
 테이블생성 Script: 
 
 CREATE TABLE `walk` (
-`walk_id` bigint(20) NOT NULL AUTO_INCREMENT,
-`dog_walker_id` varchar(255) DEFAULT NULL,
-`reserved_id` bigint(20) DEFAULT NULL,
-`sms_status` varchar(255) DEFAULT NULL,
-`user_id` varchar(255) DEFAULT NULL,
-`walk_end_date` varchar(255) DEFAULT NULL,
-`walk_start_date` varchar(255) DEFAULT NULL,
-PRIMARY KEY (`walk_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4
+	`walk_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`dog_walker_id` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`reserved_id` BIGINT(20) NULL DEFAULT NULL,
+	`sms_status` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`user_id` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`walk_end_date` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`walk_start_date` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	PRIMARY KEY (`walk_id`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB;
 
-insert샘플: insert into payment (amount, pay_date, refund_date, reserved_id, user_id) values (10000, '2022-03-10 19:22:33.102', null, '22021','soyapayment95');  
+INSERT INTO walk (dog_walker_id, reserved_id, sms_status, user_id, walk_end_date, walk_start_date) 
+VALUES ('hisover', 1, 'START', 'ShinSeokHyeon', '2022-08-28 08:00', '2022-08-28 10:00');
 
 ---------------------------------------------------  
 2. kafka설치  
@@ -24,15 +27,20 @@ insert샘플: insert into payment (amount, pay_date, refund_date, reserved_id, u
 참고사이트 : http://www.msaschool.io/operation/implementation/implementation-seven/  
 
 --------------------------------------------------  
-3. Payment(mariadb), Shop(hsqldb) 실행 및 테스트  
+3. API
 --------------------------------------------------  
-1) Payment에서 아래와 같이 api 통해 데이터 생성하면, mariadb[payment테이블]에 데이터 저장되고, message publish.  
-    - 데이터생성(postman사용) : POST http://localhost:8082/payments/   
-                              { "reservedId": "202203271311", "userId": "soya95", "amount": "10000", "payDate": "2019-03-10 10:22:33.102" }  
+1) walk 에서 아래와 같이 api 통해 데이터 생성하면, mariadb[walk테이블]에 데이터 저장되고, message publish.
+    - 산책 시작 (생성) : POST http://localhost:8082/walks/start 
+                    { "reservedId": 1, 
+                      "userId": "ShinSeokHyeon", 
+                      "dogWalkerId": "hisover" }  
 
-    - 조회 : GET http://localhost:8082/payments/1  
-
-3) Shop에서 message 받아와 저장 ( 아래 PloycyHandler.java가 실행됨 )  
+    - 산책 종료 (업데이트) : PUT http://localhost:8080/walks/end
+    						  { "id": 1,
+  								"reservedId": 1, 
+  								"userId": "ShinSeoikHyeon", 
+  								"dogWalkerId": "hisover"}
+  	- 산책 조회 (단건) : GET http://localhost:8080/walks/{id}
 
 --------------------------------------------------  
 4. 구조   
@@ -40,9 +48,9 @@ insert샘플: insert into payment (amount, pay_date, refund_date, reserved_id, u
    -service  
    -repository  
    -dto  
-   -model  
+   -model
+   -view : Request 파라미터  
    -config : KafkaProcessor.java, WebConfig.java(CORS적용)  
 --------------------------------------------------  
-5. API  
-   해당ID의 결제내역조회 : GET http://localhost:8082/payments/{userId}   
+5. swagger추가 : http://localhost:8080/swagger-ui.html  
 --------------------------------------------------  
