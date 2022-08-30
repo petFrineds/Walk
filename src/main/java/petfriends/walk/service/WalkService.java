@@ -23,9 +23,14 @@ public class WalkService {
 	 @Autowired
 	 WalkRepository walkRepository;
 	 
-	 // 산책 단건 조회
-	 public Walk findById(Long id) throws RuntimeException{
-		 return walkRepository.findById(id).orElseThrow(()->new RuntimeException("산책 건이 존재하지 않습니다."));
+//	 // 산책 단건 조회(산책번호 기준)
+//	 public Walk findById(Long id) throws RuntimeException{
+//		 return walkRepository.findById(id).orElseThrow(()->new RuntimeException("산책 건이 존재하지 않습니다."));
+//	 }
+	 
+	 // 산책 단건 조회(예약번호 기준)
+	 public Walk findByReservedId(Long reservedId) throws RuntimeException{
+		 return walkRepository.findByReservedId(reservedId).orElseThrow(()->new RuntimeException("산책 건이 존재하지 않습니다."));
 	 }
 	 
 	 // 산책 시작
