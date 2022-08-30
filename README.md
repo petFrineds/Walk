@@ -40,7 +40,7 @@ VALUES ('hisover', 1, 'START', 'ShinSeokHyeon', '2022-08-28 08:00', '2022-08-28 
   								"reservedId": 1, 
   								"userId": "ShinSeoikHyeon", 
   								"dogWalkerId": "hisover"}
-  	- 산책 조회 (단건) : GET http://localhost:8080/walks/{id}
+  	- 산책 단건 조회 (예약번호 기준) : GET http://localhost:8080/walks/{reservationId}
 
 --------------------------------------------------  
 4. 구조   
