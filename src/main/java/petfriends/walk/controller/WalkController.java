@@ -1,24 +1,15 @@
 package petfriends.walk.controller;
 
-import java.io.IOException;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import petfriends.walk.model.UserImage;
 import petfriends.walk.model.Walk;
-import petfriends.walk.repository.UserImageRepository;
 import petfriends.walk.service.WalkService;
 import petfriends.walk.view.WalkEndRequestView;
 import petfriends.walk.view.WalkRequestView;
@@ -29,39 +20,6 @@ import petfriends.walk.view.WalkRequestView;
 	 @Autowired
 	 WalkService walkService;
 	 
-	 @Autowired
-	 UserImageRepository userImageRepository;
-	 
-	 // 이미지 업로드
-	 @PostMapping("/walks/upload")
-     public Long handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException {
-  
-         UserImage userImage = new UserImage();
-         userImage.setMimeType(file.getContentType());
-         userImage.setOriginalName(file.getOriginalFilename());
-         userImage.setUserImage(file.getBytes());
-         UserImage saveUuserImg =  userImageRepository.save(userImage);
-         
-         return saveUuserImg.getId();
-     }
-	 
-	 // 이미지 조회
-	 @GetMapping("/walks/imgae/{id}")
-	 public ResponseEntity<byte[]> findOne(@PathVariable Long id) {
-	    	 Optional<UserImage> user = userImageRepository.findById(id);
-	    	    
-	    	 if(user.isPresent()) {
-	    	    	
-	    	    UserImage userImage = user.get();
-	    	    HttpHeaders headers = new HttpHeaders();
-	    	    headers.add("Content-Type", userImage.getMimeType());
-	    	    headers.add("Content-Length", String.valueOf(userImage.getUserImage().length));
-	    	    return new ResponseEntity<byte[]>(userImage.getUserImage(), headers, HttpStatus.OK);
-	    	 }
-	    	    
-	    	 return null;
-	 
-	 }
 	 
 	 // 산책 단건 조회 (산책번호 기준)
 //	 @GetMapping("/walks/{id}")
