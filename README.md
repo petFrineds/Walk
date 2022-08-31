@@ -36,8 +36,7 @@ VALUES ('hisover', 1, 'START', 'ShinSeokHyeon', '2022-08-28 08:00', '2022-08-28 
                       "dogWalkerId": "hisover" }  
 
     - 산책 종료 (업데이트) : PUT http://localhost:8080/walks/end
-    						  { "id": 1,
-  								"reservedId": 1, 
+    						  { "reservedId": 1, 
   								"userId": "ShinSeoikHyeon", 
   								"dogWalkerId": "hisover"}
   	- 산책 단건 조회 (예약번호 기준) : GET http://localhost:8080/walks/{reservationId}
