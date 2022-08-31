@@ -1,10 +1,7 @@
 package petfriends.walk.service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 
 import javax.transaction.Transactional;
 
@@ -68,10 +65,10 @@ public class WalkService {
 	 public Walk walkEnd(WalkEndRequestView walkEndRequest) throws Exception {
 		 
 		 // 해당건 존재여부 체크
-		 walkRepository.findById(walkEndRequest.getId()).orElseThrow(()->new RuntimeException("산책 건이 존재하지 않습니다."));
+		 walkRepository.findById(walkEndRequest.getReservedId()).orElseThrow(()->new RuntimeException("산책 건이 존재하지 않습니다."));
 		 
 		 // 해당건 조회
-		 Walk walkEnded = walkRepository.findById(walkEndRequest.getId()).get();
+		 Walk walkEnded = walkRepository.findByReservedId(walkEndRequest.getReservedId()).get();
 		 
 		 // 해당건이 이미 산책 종료된 건인지 체크
 		 if(walkEnded.getSmsStatus() == SmsStatus.END) {
