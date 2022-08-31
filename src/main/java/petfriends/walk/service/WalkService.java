@@ -65,7 +65,7 @@ public class WalkService {
 	 public Walk walkEnd(WalkEndRequestView walkEndRequest) throws Exception {
 		 
 		 // 해당건 존재여부 체크
-		 walkRepository.findById(walkEndRequest.getReservedId()).orElseThrow(()->new RuntimeException("산책 건이 존재하지 않습니다."));
+		 walkRepository.findByReservedId(walkEndRequest.getReservedId()).orElseThrow(()->new RuntimeException("산책 건이 존재하지 않습니다."));
 		 
 		 // 해당건 조회
 		 Walk walkEnded = walkRepository.findByReservedId(walkEndRequest.getReservedId()).get();
