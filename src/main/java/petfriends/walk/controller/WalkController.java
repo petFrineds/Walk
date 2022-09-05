@@ -1,5 +1,7 @@
 package petfriends.walk.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +37,12 @@ import petfriends.walk.view.WalkRequestView;
 		 
 		 return ResponseEntity.ok(walkService.findByReservedId(reservedId));
 	 
+	 }
+	 
+	 // 산책 목록 조회 (도그워커 기준)
+	 @GetMapping("/walks/user/{dogWalkerId}")
+	 public List<Walk> findByDogWalkerId(@PathVariable("dogWalkerId") String dogWalkerId) throws Exception {
+		 return walkService.findByDogWalkerId(dogWalkerId);
 	 }
 	 
 	 // 산책 시작 (생성)

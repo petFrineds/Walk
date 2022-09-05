@@ -2,6 +2,7 @@ package petfriends.walk.service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -29,6 +30,11 @@ public class WalkService {
 	 public Walk findByReservedId(Long reservedId) throws RuntimeException{
 		 return walkRepository.findByReservedId(reservedId).orElseThrow(()->new RuntimeException("산책 건이 존재하지 않습니다."));
 	 }
+	 
+	// 산책 목록 조회 (도그워커 기준)
+	public List<Walk> findByDogWalkerId(String dogWalkerId) {
+		 return walkRepository.findByDogWalkerId(dogWalkerId);
+	} 
 	 
 	 // 산책 시작
 	 @Transactional
