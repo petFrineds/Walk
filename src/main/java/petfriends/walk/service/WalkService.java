@@ -58,17 +58,17 @@ public class WalkService {
 		 //walkStarted.setWalkStartDate(dateStr);
 		 
 		 // 원본
-//		 LocalDateTime current = LocalDateTime.now();
-//		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-//		 walkStarted.setWalkStartDate(dateStr);
+		 LocalDateTime current = LocalDateTime.now();
+		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+		 walkStarted.setWalkStartDate(dateStr);
 		 
 		 // 강제로 현재 시간에 9시간 더하기 (west2 오레곤 시간과 맞추기 위함)
-		 LocalDateTime current = LocalDateTime.now();
-		 LocalDateTime targetDateTime2 = current
-				 .plusHours(9);
-		 
-		 String dateStr = targetDateTime2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-		 walkStarted.setWalkStartDate(dateStr);
+//		 LocalDateTime current = LocalDateTime.now();
+//		 LocalDateTime targetDateTime2 = current
+//				 .plusHours(9);
+//		 
+//		 String dateStr = targetDateTime2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//		 walkStarted.setWalkStartDate(dateStr);
 		 
 		 
 		 return walkRepository.save(walkStarted);
@@ -102,18 +102,18 @@ public class WalkService {
 //		 walkEnded.setWalkEndDate(dateStr);
 		 
 		 // 원본
-//		 LocalDateTime current = LocalDateTime.now();
-//		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-//		 walkEnded.setWalkEndDate(dateStr);
+		 LocalDateTime current = LocalDateTime.now();
+		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+		 walkEnded.setWalkEndDate(dateStr);
 		 
 		 
 		 // 강제로 현재 시간에 9시간 더하기 (west2 오레곤 시간과 맞추기 위함)
-		 LocalDateTime current = LocalDateTime.now();
-		 LocalDateTime targetDateTime2 = current
-				 .plusHours(9);
-		 
-		 String dateStr = targetDateTime2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-		 walkEnded.setWalkEndDate(dateStr);
+//		 LocalDateTime current = LocalDateTime.now();
+//		 LocalDateTime targetDateTime2 = current
+//				 .plusHours(9);
+//		 
+//		 String dateStr = targetDateTime2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//		 walkEnded.setWalkEndDate(dateStr);
 			 
 		 return	walkRepository.save(walkEnded);
 		 
