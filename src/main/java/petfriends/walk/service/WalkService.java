@@ -100,7 +100,7 @@ public class WalkService {
 			 
 		 // 산책 종료 일자는 현재일시로 세팅 
 		 //walkEnded.setWalkEndDate(LocalDateTime.now());
-//		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm"); 
 //		 String dateStr = format.format(Calendar.getInstance().getTime());
 //		 walkEnded.setWalkEndDate(dateStr);
 		 
