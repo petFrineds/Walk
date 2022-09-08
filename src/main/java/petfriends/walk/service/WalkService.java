@@ -58,8 +58,11 @@ public class WalkService {
 		 //walkStarted.setWalkStartDate(dateStr);
 		 
 		 // 원본
-		 LocalDateTime current = LocalDateTime.now();
-		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//		 LocalDateTime current = LocalDateTime.now();
+//		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//		 walkStarted.setWalkStartDate(dateStr);
+		 
+		 String dateStr = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 		 walkStarted.setWalkStartDate(dateStr);
 		 
 		 // 강제로 현재 시간에 9시간 더하기 (west2 오레곤 시간과 맞추기 위함)
@@ -102,8 +105,11 @@ public class WalkService {
 //		 walkEnded.setWalkEndDate(dateStr);
 		 
 		 // 원본
-		 LocalDateTime current = LocalDateTime.now();
-		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//		 LocalDateTime current = LocalDateTime.now();
+//		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//		 walkEnded.setWalkEndDate(dateStr);
+		 
+		 String dateStr = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 		 walkEnded.setWalkEndDate(dateStr);
 		 
 		 
